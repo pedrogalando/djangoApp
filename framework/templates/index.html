@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<div class="row">
+
+    {% for framework in frameworks %}
+    <div class="col-4 mt-4">
+        <div class="card">
+            <div class="card-header bg-light">
+                <h1><span class="badge 
+                                     badge-pill 
+                                     badge-danger 
+                                     ml-2">
+                        {{framework.id}}
+                    </span></h1>
+            </div>
+
+            <div class="card-body">
+                {{framework.nombre}}
+                {{framework.autor}}
+                {{framework.descripcion}}
+            </div>
+
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{% url 'editar' framework.id %}">
+                            <i class="fa-solid fa-file-pen"></i></a>
+                    </div>
+                    <div class="col-6">
+                        <button class="btnEliminarR" data-id="{{ framework.id }}" data-toggle="modal" data-target="#idModalEliminar"><i class="fa-solid fa-trash"></i></button>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+
+<!-- Modal -->
+ <!-- The Modal -->
+ <div class="modal fade" id="idModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">CREAR REGISTRO USUARIO</h4>
+                <button type="button" class="btn btn-warning btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">head</div>
+                    <div class="card-content">content</div>
+                    <div class="card-footer">footer</div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnIdEnviarModal" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="btnEliminarR" btn-ok>Eliminar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

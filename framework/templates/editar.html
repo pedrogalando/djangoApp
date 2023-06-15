@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+
+            <div class="card">
+                <div class="card-header">
+                    <p>EDITAR REGISTRO</p>
+                </div>
+
+                <div class="card-body">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="card-footer">
+                    <input type="submit" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</form>
+{% endblock %}
